@@ -103,7 +103,7 @@ namespace Simulation
         {
             // If there is still an update in progress ignore the call
             if (this.threadsToCompleteCount != this.completedThreadsCount)
-                return;
+                throw new Exception("Tried to call .Update() while another update is still running");
 
             SimulationContext context = this.GetContext();
 
@@ -115,6 +115,11 @@ namespace Simulation
             {
                 threadsToCompleteCount++;
                 item.ProcessEngines(context, step);
+            }
+
+            foreach (var item in this.Threads)
+            {
+                item.Thread.Join();
             }
         }
 

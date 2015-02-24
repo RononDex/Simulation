@@ -13,7 +13,7 @@ namespace Simulation
         /// <summary>
         /// The logical thread of the simulation thread
         /// </summary>
-        private Thread Thread { get; set; }
+        internal Thread Thread { get; set; }
 
         /// <summary>
         /// Enumeration for the state of the simulation thread

@@ -12,5 +12,6 @@ namespace Simulation
     public class BuiltInProperties
     {
         public static readonly string ID = PropertyBag.GetReadOnlyKey("ID");
+        public static readonly string ContentType = PropertyBag.GetReadOnlyKey("ContentType");
     }
 }
