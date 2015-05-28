@@ -13,7 +13,7 @@ This framework was written by me during my physics / informatics studies with th
 
 How do I use it?
 ---------------
-There is currently no documentation. However the code should be self-explanatory in most cases. Documentation will follow as soon as I get time to do it. To get started take a look into the Simulation.Testing folder. It contains a small console application to demonstrate its usage.
+There is currently no documentation. However the code should be self-explanatory in most cases. Documentation will follow as soon as I get time to do it. To get started take a look into the "Simulation.Testing" folder. It contains a small console application to demonstrate its usage.
 
 How can I contribute?
 ---------------
