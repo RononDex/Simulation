@@ -14,7 +14,7 @@ namespace Simulation
         /// <summary>
         /// All readonly properites use this prefix
         /// </summary>
-        public const string READONLY_PREFIX = "@";
+        public const string READONLY_PREFIX = "#";
 
         #region Static Functions
 

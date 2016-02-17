@@ -5,6 +5,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Simulation_Core_testing.Engines;
+using Simulation_Core_testing.Math;
+using Simulation_Core_testing.Objects;
 
 namespace Simulation_Core_testing
 {
@@ -17,14 +20,16 @@ namespace Simulation_Core_testing
             var system = new SimulationSystem();
 
             // Add a thread and a simulation engine to the simulation framework
-            system.AddSimulationThread(new SimulationThread(new SimulationEngine[] {new TestSimulationEngine() }.ToList()));
-
-            // Add a new simulation group
-            system.World.Objects.Add(new SimulationGroup());
+            system.AddSimulationThread(new SimulationThread(new SimulationEngine[] { new GravityEngine() }.ToList()));
 
             // Add a new object to the group
-            ((SimulationGroup)system.World.Objects[0]).Objects.Add(new SimulationObject());
-            system.World.Objects.Add(new SimulationObject());
+            var sun = new Star();
+            sun.Position = new Vector3D(0,0,0);
+            sun.Velocity = new Vector3D(0,0,0);
+            var earth = new Planet();
+
+            system.World.Objects.Add(sun);
+            system.World.Objects.Add(earth);
 
             DateTime loopStart = DateTime.Now;
             DateTime loopEnd = DateTime.Now;

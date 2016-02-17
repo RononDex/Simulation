@@ -47,6 +47,7 @@ namespace Simulation
 
             // Create & set the unique GUID for this object
             this[BuiltInProperties.ID] = Guid.NewGuid();
+            this[BuiltInProperties.ContentType] = this.GetType().Name;
 
             // Write some debug information
             Debug.WriteLine("New simulation object of type {0} with id {1} created!", this.GetType(), this[BuiltInProperties.ID]);
