@@ -15,6 +15,8 @@ namespace Simulation_Core_testing
     {
         static void Main(string[] args)
         {
+            Console.WindowWidth = 140;
+            Console.BufferWidth = 140;
             Debug.Listeners.Add(new ConsoleTraceListener());
 
             var system = new SimulationSystem();
@@ -26,7 +28,12 @@ namespace Simulation_Core_testing
             var sun = new Star();
             sun.Position = new Vector3D(0,0,0);
             sun.Velocity = new Vector3D(0,0,0);
+            sun.Mass = 1.998855e30;
+
             var earth = new Planet();
+            earth.Mass = 5.9722e24;
+            earth.Position = new Vector3D(149.6e6,0,0);
+            earth.Velocity = new Vector3D(0,29780,0);
 
             system.World.Objects.Add(sun);
             system.World.Objects.Add(earth);
@@ -34,12 +41,20 @@ namespace Simulation_Core_testing
             DateTime loopStart = DateTime.Now;
             DateTime loopEnd = DateTime.Now;
 
+            DateTime simulatedDate = DateTime.Now;
+
             // Simulates the update loop
             while (true)
             {
                 loopStart = DateTime.Now;
-                system.Update(loopStart - loopEnd);
+                var speedmodifier = 200;
+                var step = new TimeSpan((loopEnd - loopStart).Ticks*speedmodifier);
+
+                system.Update(step);
                 loopEnd = DateTime.Now;
+
+                simulatedDate += step;
+                Console.WriteLine("Pos: Earth: {0}\t Sun: {1} |{2}", earth.Position, sun.Position, simulatedDate);
 
                 // Wait for user to press enter to start the next loop
                 //Console.ReadLine();

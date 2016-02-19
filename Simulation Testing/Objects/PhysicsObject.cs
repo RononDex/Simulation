@@ -10,7 +10,7 @@ namespace Simulation_Core_testing.Objects
 {
     public class PhysicsObject : SimulationObject
     {
-        public float Mass
+        public double Mass
         {
             get { return Convert.ToSingle(this["Mass"]); }
             set { this["Mass"] = value; }

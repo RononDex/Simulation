@@ -85,11 +85,11 @@ namespace Simulation
         /// <param name="type">The type to search for</param>
         /// <param name="recusrive">True to search recusrivly through groups and its members</param>
         /// <returns></returns>
-        public List<SimulationObject> FindByType<type>(bool recusrive)
+        public List<type> FindByType<type>(bool recusrive) where type: SimulationObject
         {
-            var result = new List<SimulationObject>();
+            var result = new List<type>();
 
-            FindByTypeTypeRecursive<type>(result, this, recusrive);
+            FindByTypeTypeRecursive(result, this, recusrive);
 
             return result;
         }
@@ -101,13 +101,13 @@ namespace Simulation
         /// <param name="group"></param>
         /// <param name="fieldValue"></param>
         /// <param name="includeGroups"></param>
-        private void FindByTypeTypeRecursive<type>(ICollection<SimulationObject> objects, IEnumerable<SimulationObject> group, bool recusrive)
+        private void FindByTypeTypeRecursive<type>(ICollection<type> objects, IEnumerable<SimulationObject> group, bool recusrive) where type : SimulationObject
         {
             foreach (SimulationObject simulationObject in group)
             {
                 if (simulationObject is type)
                 {
-                    objects.Add(simulationObject);
+                    objects.Add((type)simulationObject);
                 }
                 if (recusrive && simulationObject is SimulationGroup)
                 {
