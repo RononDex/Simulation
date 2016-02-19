@@ -67,7 +67,7 @@ namespace Simulation_Core_testing.Engines
 
                 // Calculate new position (using linear interpolation for velocity)
                 var deltaVelocity = physObject.Velocity - oldVelocity;
-                physObject.Position += (oldVelocity+deltaVelocity / 2) * step.TotalSeconds;
+                physObject.Position += (oldVelocity)+(deltaVelocity / 2) * step.TotalSeconds;
             }
         }
     }
