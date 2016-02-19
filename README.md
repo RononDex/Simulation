@@ -8,8 +8,7 @@ What is this?
 ---------------
 The Simulation Framework is a sophisticated tool to write simulations and models. It can be used to simulate anything you can imagine from a simple GameEngine for a game or fully simulated scientific models / simulations.
 
-This framework was written by me during my physics / informatics studies with the idea in mind I might be able to use it in the future. Also there might have been the idea to create a Simulator for the Atlantis city from Stargate :)
-
+This framework was written by me during my physics / computer science studies with the idea in mind I might be able to use it in the future.
 
 How do I use it?
 ---------------
