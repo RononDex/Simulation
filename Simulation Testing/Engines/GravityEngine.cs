@@ -55,7 +55,7 @@ namespace Simulation_Core_testing.Engines
                 physObject["Gravity"] = garvityForceVector;
 
                 // Calculate acceleration
-                var acceleration = garvityForceVector * (1 / physObject.Mass); // F = m * a  --> a = F / m
+                var acceleration = garvityForceVector / physObject.Mass; // F = m * a  --> a = F / m
                 physObject["Acceleration"] = acceleration;
 
                 // Calculate new velocity
@@ -67,7 +67,7 @@ namespace Simulation_Core_testing.Engines
 
                 // Calculate new position (using linear interpolation for velocity)
                 var deltaVelocity = physObject.Velocity - oldVelocity;
-                physObject.Position += (oldVelocity)+(deltaVelocity / 2) * step.TotalSeconds;
+                physObject.Position += ((oldVelocity)+(deltaVelocity / 2)) * step.TotalSeconds;
             }
         }
     }
