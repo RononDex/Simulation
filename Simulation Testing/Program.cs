@@ -32,7 +32,7 @@ namespace Simulation_Core_testing
 
             var earth = new Planet();
             earth.Mass = 5.9722e24;
-            earth.Position = new Vector3D(149.6e6,0,0);
+            earth.Position = new Vector3D(149.6e9,0,0);
             earth.Velocity = new Vector3D(0,29780,0);
 
             system.World.Objects.Add(sun);
@@ -46,9 +46,10 @@ namespace Simulation_Core_testing
             // Simulates the update loop
             while (true)
             {
+                var speedmodifier = 200000;
+                var step = new TimeSpan((loopEnd - loopStart).Ticks * speedmodifier);
+
                 loopStart = DateTime.Now;
-                var speedmodifier = 200;
-                var step = new TimeSpan((loopEnd - loopStart).Ticks*speedmodifier);
 
                 system.Update(step);
                 loopEnd = DateTime.Now;

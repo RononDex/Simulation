@@ -40,7 +40,7 @@ namespace Simulation_Core_testing.Engines
                         continue;
                     
                     // First calculate the direction of the force
-                    var subGravityVector = physObject.Position - relativeObject.Position;
+                    var subGravityVector = relativeObject.Position - physObject.Position;
 
                     // Second calculate the magnitude of the force
                     var magnitude = GRAVITATIONAL_CONSTANT * physObject.Mass * relativeObject.Mass / System.Math.Pow(subGravityVector.Length, 2);
