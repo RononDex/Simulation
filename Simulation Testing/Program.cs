@@ -38,19 +38,14 @@ namespace Simulation_Core_testing
             system.World.Objects.Add(sun);
             system.World.Objects.Add(earth);
 
-            DateTime loopStart = DateTime.Now;
-            DateTime loopEnd = DateTime.Now;
-
             DateTime simulatedDate = DateTime.Now;
 
             // Simulates the update loop
             while (true)
             {
                 var step = new TimeSpan(0, 10, 0);
-                loopStart = DateTime.Now;
 
                 system.Update(step);
-                loopEnd = DateTime.Now;
 
                 simulatedDate += step;
                 Console.WriteLine("Pos: Earth: {0}\t Sun: {1} |{2}", earth.Position, sun.Position, simulatedDate);
