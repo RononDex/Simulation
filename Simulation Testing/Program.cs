@@ -15,8 +15,8 @@ namespace Simulation_Core_testing
     {
         static void Main(string[] args)
         {
-            Console.WindowWidth = 200;
-            Console.BufferWidth = 200;
+            Console.WindowWidth = 160;
+            Console.BufferWidth = 160;
             Debug.Listeners.Add(new ConsoleTraceListener());
 
             var system = new SimulationSystem();
