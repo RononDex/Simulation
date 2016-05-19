@@ -35,21 +35,54 @@ namespace Simulation_Core_testing
             earth.Position = new Vector3D(0, 149.6e9, 0);
             earth.Velocity = new Vector3D(29780,0,0);
 
+            var moon = new Planet();
+            moon.Mass = 7.342e22;
+            moon.Position = earth.Position + new Vector3D(0, 384399000, 0);
+            moon.Velocity = earth.Velocity + new Vector3D(1020,0,0);
+
+            var saturn = new Planet();
+            saturn.Mass = 5.683e26;
+            saturn.Position = new Vector3D(1433.5e9, 0, 0);
+            saturn.Velocity = new Vector3D(0, 0, -9960000);
+
             system.World.Objects.Add(sun);
             system.World.Objects.Add(earth);
+            system.World.Objects.Add(moon);
+            system.World.Objects.Add(saturn);
 
             DateTime simulatedDate = DateTime.Now;
+
+            Console.SetCursorPosition(0, 8);
+            Console.WriteLine("Solar system simulation");
 
             // Simulates the update loop
             while (true)
             {
-                var step = new TimeSpan(0, 10, 0);
+                var step = new TimeSpan(0, 30, 0);
 
                 system.Update(step);
 
                 simulatedDate += step;
-                Console.WriteLine("Pos: Earth: {0}\t Sun: {1} |{2}", earth.Position, sun.Position, simulatedDate);
-                //Console.WriteLine("Vel: Earth: {0}\t Sun: {1}\tD: {3} |{2}", earth.Velocity, sun.Velocity, simulatedDate, (earth.Position - sun.Position).Length);
+
+                // Date
+                Console.SetCursorPosition(0, 10);
+                Console.Write("Simulated date: {0}", simulatedDate);
+
+                // Sun
+                Console.SetCursorPosition(0, 11);
+                Console.Write("Sun:    Pos: {0},\tVel: {1}", sun.Position, sun.Velocity);
+
+                // Earth
+                Console.SetCursorPosition(0, 12);
+                Console.Write("Earth:  Pos: {0},\tVel: {1}", earth.Position, earth.Velocity);
+
+                // Moon
+                Console.SetCursorPosition(0, 13);
+                Console.Write("Moon:   Pos: {0}, \tVel: {1}", moon.Position, moon.Velocity);
+
+                // Saturn
+                Console.SetCursorPosition(0, 14);
+                Console.Write("Saturn: Pos: {0},\tVel: {1}", saturn.Position, saturn.Velocity);
 
                 // Wait for user to press enter to start the next loop
                 //Console.ReadLine();

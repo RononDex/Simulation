@@ -137,7 +137,7 @@ namespace Simulation_Core_testing.Math
 
         public override string ToString()
         {
-            return string.Format("X:{0}, Y:{1}, Z:{2}", X, Y, Z);
+            return string.Format("X:{0:00000000.00}, Y:{1:00000000.00}, Z:{2:00000000.00}", X, Y, Z);
         }
     }
 }
