@@ -1,10 +1,6 @@
 ﻿using Simulation;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Simulation_Core_testing.Engines;
 using Simulation_Core_testing.Math;
 using Simulation_Core_testing.Objects;
@@ -15,10 +11,6 @@ namespace Simulation_Core_testing
     {
         static void Main(string[] args)
         {
-            Console.WindowWidth = 160;
-            Console.BufferWidth = 160;
-            Debug.Listeners.Add(new ConsoleTraceListener());
-
             var system = new SimulationSystem();
 
             // Add a thread and a simulation engine to the simulation framework
